@@ -1,0 +1,59 @@
+-- 创建表空间
+create tablespace jk  datafile 'D:\software\database\oracle\tablespace\jk.DBF' size 50M autoextend on next 10M 
+
+-- 创建用户并赋表空间
+create user lw1 identified by 123456 default tablespace jk
+
+-- 授权
+grant dba to lw1
+
+-- grant connect,resource to lw1
+
+-- 切换用户
+
+--DROP TABLE dept_p;
+
+CREATE TABLE dept_p (
+  DEPT_ID varchar2(40) PRIMARY KEY NOT NULL,
+  DEPT_NAME varchar2(40) default NULL,
+  PARENT_ID varchar2(40) default NULL,
+  STATE number(11) default NULL
+);
+
+comment on column dept_p.STATE is '1代表启用，0代表停用，默认为1';
+
+insert into DEPT_P
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('100', '杰信商贸集团', NULL, 1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('3d00290a-1af0-4c28-853e-29fbf96a2722', '市场部', '100', 1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('4028827c4fb6202a014fb6209c730000', '杰信总裁办', NULL, 1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('4028827c4fb633bd014fb64467470000', '杰信', NULL, NULL);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('4028827c4fb645b0014fb64668550000',
+   '船运部cgx',
+   '4028827c4fb6202a014fb6209c730000',
+   1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('73f3fa2f-66a2-4d16-8306-78d89003031b', '网络部', '100', 1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('97f88a8c-90fc-4d52-aed7-2046f62fb498', '总经办', '100', 1);
+insert into dept_p
+  (DEPT_ID, DEPT_NAME, PARENT_ID, STATE)
+values
+  ('aeb1c7d3-9a54-4f73-b0ec-0325b83aef45', '船运部', '100', 1);

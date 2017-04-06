@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-31 14:46:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.lw.jk.pojo">
+	<class name="User" table="USER_P">
+		<id name="id" type="java.lang.String">
+			<column name="USER_ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="userName" column="USER_NAME"></property>
+		<property name="password" column="PASSWORD"></property>
+		<property name="state" column="STATE"></property>
+
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		<property name="updateBy" column="UPDATE_BY"></property>
+		<property name="updateTime" column="UPDATE_TIME"></property>
+
+		<many-to-one name="dept" class="Dept" column="DEPT_ID"></many-to-one>
+		<one-to-one name="userInfo" cascade="all" class="UserInfo">
+		</one-to-one>
+		<set name="role" table="role_user_p">
+			<key column="USER_ID"></key>
+			<many-to-many column="ROLE_ID" class="Role"></many-to-many>
+		</set>
+		
+	</class>
+</hibernate-mapping>

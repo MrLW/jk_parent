@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-31 14:46:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.lw.jk.pojo">
+	<class name="Dept" table="DEPT_P">
+		<id name="id" type="java.lang.String">
+			<column name="DEPT_ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="deptName" type="java.lang.String">
+			<column name="DEPT_NAME" />
+		</property>
+		<many-to-one name="parent" class="com.lw.jk.pojo.Dept"
+			column="PARENT_ID"></many-to-one>
+
+		<property name="state" type="java.lang.Integer">
+			<column name="STATE" />
+		</property>
+		<set name="users">
+			<!-- 外键字段 -->
+			<key column="DEPT_ID"></key>
+			<one-to-many class="User" />
+		</set>
+	</class>
+</hibernate-mapping>

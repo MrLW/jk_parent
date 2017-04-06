@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-31 14:46:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.lw.jk.pojo">
+	<class name="Module" table="MODULE_P">
+		<id name="id" type="java.lang.String">
+			<column name="MODULE_ID" />
+			<generator class="uuid" />
+		</id>
+		<property name="parentId" column="PARENT_ID"></property>
+		<property name="parentName" column="PARENT_NAME"></property>
+		<property name="name" column="NAME"></property>
+
+		<property name="layerNum" column="LAYER_NUM"></property>
+		<property name="isLeaf" column="IS_LEAF"></property>
+		<property name="ico" column="ICO"></property>
+		<property name="cpermission" column="CPERMISSION"></property>
+		<property name="curl" column="CURL"></property>
+		<property name="ctype" column="CTYPE"></property>
+		<property name="state" column="STATE"></property>
+		<property name="belong" column="BELONG"></property>
+		<property name="cwhich" column="CWHICH"></property>
+		<property name="quoteNum" column="QUOTE_NUM"></property>
+		<property name="remark" column="REMARK"></property>
+		<property name="orderNo" column="ORDER_NO"></property>
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		<property name="updateBy" column="UPDATE_BY"></property>
+		<property name="updateTime" column="UPDATE_TIME"></property>
+		
+		<!-- table：指定中间表的name -->
+		<set name="roles" table="role_module_p">
+			<key column="MODULE_ID"></key>
+			<many-to-many class="Role" column="ROLE_ID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
