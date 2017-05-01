@@ -12,6 +12,7 @@
 </head>
 
 <frameset rows="125,*" name="topFrameset" border="0">
+	<!-- scrolling 属性规定是否在 iframe 中显示滚动条 -->
 	<frame name="top_frame" scrolling="no" target="middleFrameSet"
 		src="homeAction_title">
 	<frameset cols="202,*" height="100%" name="middle" frameborder="no"

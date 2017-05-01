@@ -17,12 +17,14 @@
 		<property name="createTime" column="CREATE_TIME"></property>
 		<property name="updateBy" column="UPDATE_BY"></property>
 		<property name="updateTime" column="UPDATE_TIME"></property>
-
+		<!-- 创建外键字段 -->
 		<many-to-one name="dept" class="Dept" column="DEPT_ID"></many-to-one>
 		<one-to-one name="userInfo" cascade="all" class="UserInfo">
 		</one-to-one>
 		<set name="role" table="role_user_p">
+			<!-- 引用外键字段 -->
 			<key column="USER_ID"></key>
+			<!-- 创建外键字段 -->
 			<many-to-many column="ROLE_ID" class="Role"></many-to-many>
 		</set>
 		

@@ -1,0 +1,17 @@
+com\lw\jk\pojo\ExtCproduct.class
+com\lw\jk\pojo\Invoice.class
+com\lw\jk\pojo\TreeResult.class
+com\lw\jk\pojo\Export.class
+com\lw\jk\pojo\BasePojo.class
+com\lw\jk\pojo\Contract.class
+com\lw\jk\pojo\User.class
+com\lw\jk\pojo\Factory.class
+com\lw\jk\pojo\Role.class
+com\lw\jk\pojo\ShippingOrder.class
+com\lw\jk\pojo\ContractProduct.class
+com\lw\jk\pojo\ExportProduct.class
+com\lw\jk\pojo\UserInfo.class
+com\lw\jk\pojo\Dept.class
+com\lw\jk\pojo\Module.class
+com\lw\jk\pojo\PackingList.class
+com\lw\jk\pojo\ExtEproduct.class

@@ -8,7 +8,6 @@
 	<name>jk_parent</name>
 	<description>business_parent</description>
 
-
 	<properties>
 		<spring.version>4.2.4.RELEASE</spring.version>
 		<struts2.version>2.3.24</struts2.version>
@@ -16,7 +15,7 @@
 		<slf4j.version>1.6.6</slf4j.version>
 		<log4j.version>1.2.12</log4j.version>
 		<shiro.version>1.2.3</shiro.version>
-		<cxf.version>3.0.1</cxf.version>
+		<cxf.version>3.0.2</cxf.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<mysql.version>5.1.6</mysql.version>
 
@@ -29,11 +28,13 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.4</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.37</version>
+			<version>1.2.31</version>
 		</dependency>
+
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
@@ -169,7 +170,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>${c3p0.version}</version>
 		</dependency>
-
+		<!-- 添加cxf依赖开始 -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
@@ -180,7 +181,7 @@
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
 		</dependency>
-
+		<!-- 添加cxf依赖结束 -->
 		<!-- log start -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -218,6 +219,12 @@
 			<groupId>org.codehaus.xfire</groupId>
 			<artifactId>xfire-core</artifactId>
 			<version>1.2.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.ws.commons</groupId>
+					<artifactId>XmlSchema</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -276,6 +283,17 @@
 			<artifactId>ehcache-core</artifactId>
 			<version>2.6.6</version>
 		</dependency>
+		<!-- 报表 -->
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>1.0.16</version>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.13</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -300,7 +318,7 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
-					<port>8080</port>
+					<port>8081</port>
 					<path>/</path>
 				</configuration>
 			</plugin>

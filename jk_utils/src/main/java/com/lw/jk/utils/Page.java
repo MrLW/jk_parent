@@ -13,6 +13,7 @@ public class Page<T> {
 	private int totalRecord; // 总记录数
 	private int totalPage; // 总页数
 	private List<T> results; // 对应的当前页记录
+	// 查询参数
 	private Map<String, Object> params = new HashMap<String, Object>(); // 其他的参数我们把它分装成一个Map对象
 
 	public int getPageNo() {

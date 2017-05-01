@@ -20,7 +20,7 @@
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jk?characterEncoding=utf8" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jk2601?characterEncoding=utf8" />
 		<property name="user" value="root" />
 		<property name="password" value="root" />
 	</bean>
@@ -60,6 +60,9 @@
 	<!--组装其它 配置文件 -->
 	<import resource="classpath:spring/applicationContext-dao.xml"></import>
 	<import resource="classpath:spring/applicationContext-service.xml"></import>
+	<import resource="classpath:spring/applicationContext-cxf.xml"></import>
 	<import resource="classpath:spring/applicationContext-action.xml"></import>
 	<import resource="classpath:spring/applicationContext-shiro.xml"></import>
+	<import resource="classpath:spring/applicationContext-mail.xml"></import>
+	<import resource="classpath:spring/applicationContext-quartz.xml"></import>
 </beans>

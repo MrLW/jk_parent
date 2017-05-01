@@ -46,19 +46,21 @@
 	</tr>
 	</thead>
 	<tbody class="tableBody" >
-${page.links}
+${links}
 	
-	<c:forEach items="${page.results}" var="o" varStatus="status">
-	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+	<c:forEach items="${results}" var="o" varStatus="status">
+	<tr align="left" class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
 		<td>${status.index+1}</td>
 		<td>${o.seller}</td>
 		<td>${o.buyer}</td>
 		<td>${o.invoiceNo}</td>
-		<td>${o.invoiceDate}</td>
 		<td>
-		<c:if test="${o.state==0}">草稿</c:if>
-		<c:if test="${o.state==1}"><b><font color="green">已上报</font></b></c:if>
+			<fmt:formatDate value="${o.invoiceDate}" pattern="yyyy-MM-dd"/>
+		</td>
+		<td>
+			<c:if test="${o.state==0}">草稿</c:if>
+			<c:if test="${o.state==1}"><b><font color="green">已装箱</font></b></c:if>
 		</td>
 	</tr>
 	</c:forEach>

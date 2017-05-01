@@ -4,9 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 角色
- * @author Administrator
- *
+ * 模块
+ * @author lw
  */
 public class Module extends BasePojo {
 	private String id;
@@ -20,12 +19,13 @@ public class Module extends BasePojo {
 	private String ico;  //图片
 	private String cpermission;//权限
 	private String curl;//路径
-	private Integer ctype;//菜单的类型：主菜单，左侧菜单   ，按钮
+	private Integer ctype;//菜单的类型：主菜单，左侧菜单 (1)  ，按钮
 	private Integer state;//状态
 	private String belong;//从属于
 	private String cwhich;//
 	private Integer quoteNum;//引用次数
 	private String remark;//备注
+	// 用来排序用
 	private Integer orderNo;//排序号
 	public String getId() {
 		return id;

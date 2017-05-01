@@ -7,6 +7,7 @@ import java.util.List;
 import com.lw.jk.pojo.Role;
 import com.lw.jk.utils.Page;
 
+
 public interface RoleService {
 	// 查询所有，带条件查询
 	public List<Role> find(String hql, Class<Role> entityClass, Object[] params);

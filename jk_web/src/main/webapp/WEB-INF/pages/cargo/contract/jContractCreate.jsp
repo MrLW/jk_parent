@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<form name="icform" method="post">
+<form name="icform" method="POST">
 
 <div id="menubar">
 <div id="middleMenubar">
@@ -95,7 +95,7 @@
 	            <td class="tableContent"><textarea name="crequest" style="height:150px;"></textarea>
 	            <td class="columnTitle">说明：</td>
 	            <td class="tableContent"><textarea name="remark" style="height:150px;"></textarea>
-	        </tr>		
+	        </tr>
 		</table>
 	</div>
  

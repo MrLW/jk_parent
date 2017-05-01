@@ -18,4 +18,12 @@
 	<bean id="baseDao" class="com.lw.jk.dao.impl.BaseDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-</beans>
+	<!-- 配置JdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- 配置Sqldao -->
+	<bean id="sqlDao" class="com.lw.jk.dao.impl.SqlDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+</beans> 

@@ -7,24 +7,48 @@
 		<property name="dialect">
 			org.hibernate.dialect.MySQL5Dialect
 		</property>
-
+		<!-- 
+			添加此行代码:在进行查询将会报错:
+						createQuery is not valid without active transaction
+			和Spring整合时不用这样写,而是使用OpenSessionInViewFilter来实现session和thread绑定
+			因为进行了事务控制
+			<property name="hibernate.current_session_context_class">thread</property> 
+		-->
 		<property name="show_sql">true</property>
 		<property name="format_sql">false</property>
 		<property name="hbm2ddl.auto">none</property>
 		<!-- 懒加载，配合web.xml中配置的 openSessionInViewFilter -->
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
-		<!--校验模式 JPA java persistent api -->
+		<!--校验模式 JPA java persistent api
+			配置成none,否则需要加上hibernate-validate.jar来做验证,默认为auto
+		 -->
 		<property name="javax.persistence.validation.mode">none</property>
 		<!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jk</property> 
 			<property name="hibernate.connection.password">root</property> <property 
 			name="hibernate.connection.username">root</property> <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> -->
-		<!-- 
-			加载映射文件
-		 -->
+		<!-- 加载映射文件 -->
 		<mapping resource="com/lw/jk/pojo/Dept.hbm.xml"></mapping>
 		<mapping resource="com/lw/jk/pojo/User.hbm.xml"></mapping>
 		<mapping resource="com/lw/jk/pojo/UserInfo.hbm.xml"></mapping>
-		<mapping resource="com/lw/jk/pojo/Module.hbm.xml"/>
+		<mapping resource="com/lw/jk/pojo/Module.hbm.xml" />
 		<mapping resource="com/lw/jk/pojo/Role.hbm.xml"></mapping>
+		<!-- 购销合同 -->
+		<mapping resource="com/lw/jk/pojo/Contract.hbm.xml"></mapping>
+		<mapping resource="com/lw/jk/pojo/ContractProduct.hbm.xml"></mapping>
+		<mapping resource="com/lw/jk/pojo/ExtCproduct.hbm.xml" />
+		<mapping resource="com/lw/jk/pojo/Factory.hbm.xml"></mapping>
+	
+		<!-- 出口单 -->
+		<mapping resource="com/lw/jk/pojo/Export.hbm.xml"></mapping>
+		<mapping resource="com/lw/jk/pojo/ExportProduct.hbm.xml" />
+		<mapping resource="com/lw/jk/pojo/ExtEproduct.hbm.xml"></mapping>
+		<!-- 装箱单 -->
+		<mapping resource="com/lw/jk/pojo/PackingList.hbm.xml"></mapping>
+		<!-- 委托单 -->
+		<mapping resource="com/lw/jk/pojo/ShippingOrder.hbm.xml"></mapping>
+		<!-- 发票管理 -->
+		<mapping resource="com/lw/jk/pojo/Invoice.hbm.xml"></mapping>
+		<!-- 财务管理 -->
+		<mapping resource="com/lw/jk/pojo/Finance.hbm.xml"></mapping>
 	</session-factory>
 </hibernate-configuration>

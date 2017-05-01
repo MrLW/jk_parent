@@ -1,6 +1,5 @@
 package com.lw.jk.action;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -8,20 +7,16 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.lw.jk.pojo.Dept;
+import com.lw.jk.pojo.User;
+import com.lw.jk.utils.SysConstant;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-/**
- * @Description:
- * @Author: 传智播客 java学院 传智.宋江
- * @Company: http://java.itcast.cn
- * @CreateDate: 2014年10月31日
- */
-
 // 通过RequestAware, SessionAware,
 // ApplicationAware实行接口获得request,session,application对象，action中就可直接调用
-
+/**
+ * @author lw
+ */
 public class BaseAction extends ActionSupport implements RequestAware, SessionAware, ApplicationAware {
 	private static Logger log = Logger.getLogger(BaseAction.class);
 
@@ -64,13 +59,23 @@ public class BaseAction extends ActionSupport implements RequestAware, SessionAw
 	public void push(Object obj) {
 		ActionContext.getContext().getValueStack().push(obj);
 	}
+	
+	/**
+	 *  将栈顶元素移除
+	 */
+	public void pop() {
+		ActionContext.getContext().getValueStack().pop();
+	}
 
 	/**
-	 * 将key-value对放入值栈的 context中
-	 * 
+	 * 将key-value对放入值栈的 contextMap中
 	 */
 	public void put(String key ,Object value){
 		ActionContext.getContext().put(key, value);
+	}
+	
+	public User getCurrentUser(){
+		return (User)session.get(SysConstant.CURRENT_USER_INFO) ;
 	}
 
 }

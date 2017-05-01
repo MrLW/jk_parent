@@ -7,6 +7,7 @@ import java.util.List;
 import com.lw.jk.pojo.Module;
 import com.lw.jk.utils.Page;
 
+
 public interface ModuleService {
 	// 查询所有，带条件查询
 	public List<Module> find(String hql, Class<Module> entityClass, Object[] params);

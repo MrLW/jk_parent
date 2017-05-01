@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.poi.ss.formula.functions.T;
-
 import com.lw.jk.pojo.Dept;
 import com.lw.jk.utils.Page;
 
+	
 public interface DeptService {
 	// 查询所有，带条件查询
 	public List<Dept> find(String hql, Class<Dept> entityClass, Object[] params);

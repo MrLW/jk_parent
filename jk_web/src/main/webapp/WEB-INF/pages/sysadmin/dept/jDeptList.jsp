@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="../../baselist.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -85,7 +86,7 @@
     ${links }
 	
 	<c:forEach items="${results }" var="dept"  varStatus="st">
-		<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+		<tr align="left" class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 			<td><input type="checkbox" name="id" value="${dept.id }"/></td>
 			<td>${st.count }</td>
 			<td>${dept.id }</td>
@@ -101,6 +102,7 @@
  
  
 </form>
+<s:debug></s:debug>
 </body>
 </html>
 

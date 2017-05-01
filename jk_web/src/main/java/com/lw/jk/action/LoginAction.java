@@ -9,7 +9,7 @@ import com.lw.jk.utils.SysConstant;
 import com.lw.jk.utils.UtilFuns;
 
 /**
- * @Description: 登录和退出类
+ * 登录和退出Action
  */
 public class LoginAction extends BaseAction {
 
@@ -27,7 +27,7 @@ public class LoginAction extends BaseAction {
 			// 1、获取Subject
 			Subject subject = SecurityUtils.getSubject();
 			// 2、调用登录方法
-			UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+			UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 			subject.login(token); // 会到realm中的doGetAuthenticationInfo方法
 			// 3、登录成功时从shiro中取出登录信息
 			User user = (User) subject.getPrincipal();

@@ -14,8 +14,8 @@
 				如果是重定向则不可以，因为重定向是客户端的行为 2、如果使用重定向，则这里如果要传递数据，将会消失，而转发不会. 3、转发地址栏不会发生改变 -->
 			<result name="list">/WEB-INF/pages/sysadmin/dept/jDeptList.jsp
 			</result>
-			
-			
+
+
 			<result name="toview">/WEB-INF/pages/sysadmin/dept/jDeptView.jsp
 			</result>
 			<result name="tocreate">/WEB-INF/pages/sysadmin/dept/jDeptCreate.jsp
@@ -72,7 +72,6 @@
 			<result name="alist" type="redirectAction">moduleAction_list</result>
 		</action>
 	</package>
-
-
+	
 </struts>
 	

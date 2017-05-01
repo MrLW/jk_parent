@@ -7,7 +7,13 @@
 	<script src="${ctx}/components/pngfix/DD_belatedPNG.js"></script>
 	<script> DD_belatedPNG.fix('*'); </script>
 </head>
-
+<script type="text/javascript">
+	// 解决框架嵌套的问题
+	// top 即window对象
+	if (self.location != top.location) {
+		top.location = self.location;
+	}
+</script>
 <body>
 <form id="login_main" method="post">
 <div id="png">
@@ -25,6 +31,7 @@
 				</div>
 			</div>
 			<div class="btnstyle">
+				<!-- 相当于第二次走登录操作,第一次是在index.jsp中  -->
 				<input  class="loginImgOut" value="" type="button" onclick="formSubmit('${ctx}/login.action','_self');"
 				  onmouseover="this.className='loginImgOver'" 
 				  onmouseout="this.className='loginImgOut'"

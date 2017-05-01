@@ -16,6 +16,7 @@ public class UserInfo extends BasePojo{
 	private Integer degree;// 等级
 	private String remark;// 备注
 	private Integer orderNo;// 排序号
+	private String email ;
 	public String getId() {
 		return id;
 	}
@@ -88,5 +89,10 @@ public class UserInfo extends BasePojo{
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

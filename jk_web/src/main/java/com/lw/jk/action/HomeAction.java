@@ -1,10 +1,7 @@
 package com.lw.jk.action;
 
 /**
- * @Description:
- * @Author:		传智播客 java学院	传智.宋江
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年10月31日
+ *  首页
  */
 public class HomeAction extends BaseAction{
 	private String moduleName;		//动态指定跳转的模块，在struts.xml中配置动态的result
@@ -35,6 +32,7 @@ public class HomeAction extends BaseAction{
 		this.setModuleName(moduleName);
 		return "tomain";
 	}
+	
 	public String toleft(){
 		//获取request
 		return "toleft";

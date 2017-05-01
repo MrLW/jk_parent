@@ -56,7 +56,14 @@
 	            <td class="tableContent"><input type="text" name="marks" value="${marks}"/></td>
 	      
 	            <td class="columnTitle">描述：</td>
-	            <td class="tableContent"><input type="text" name="descriptions" value="${descriptions}"/></td>
+	            <td class="tableContent"><input type="text" name="descriptions" value="${descriptions}"/>
+	            		<input type="hidden" name="exportIds" value="${exportIds }">
+	            		<input type="hidden" name="exportNos" value="${exportNos }">
+	            		<input type="hidden" name="state" value="${state }">
+	            		<input type="hidden" name="createBy" value="${createBy }">
+	            		<input type="hidden" name="createDept" value="${createDept }">
+	            		<input type="hidden" name="createTime" value="${createTime }">
+	            </td>
 	        </tr>	
 	       
 		</table>

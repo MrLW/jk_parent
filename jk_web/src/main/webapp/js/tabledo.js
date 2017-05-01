@@ -44,20 +44,28 @@ function setSelectOption(obj, curValue ){
 		}
 	} 
 }
+// 这是我用来测试此js是否导入的
+// 在此js中
+function fun(){
+	alert('按钮被点击了');
+}
 
 /* 设置此行是否更新 by tony 20091110 
 */	    
 function setTRUpdateFlag( obj ){
+	alert('调用了');
 	//alert(obj.type);
 	//alert(obj.defaultValue);
+	/*
 	var currTr = obj.parentElement.parentElement;
 	if(currTr.innerHTML.toLowerCase().indexOf("<span")==0){
 		currTr = obj.parentElement.parentElement.parentElement;
 	}
 	//alert(currTr.innerHTML);
 	if(obj.value!=obj.defaultValue){	//当填写的框内容发生变化时,设置本行记录发生变化标识
+		alert('修改了');
 		currTr.cells[1].all.mr_changed.value = "1";
-	}
+	}*/
 	//currTr.cells[1].document.getElementsByTagName("INPUT")[4].value = "1";
 	//alert(currTr.cells[1].all.mr_changed.value);
 	//alert(currTr.cells[1].document.getElementsByTagName("INPUT")[4].value);

@@ -30,10 +30,10 @@
 		<property name="updateBy" column="UPDATE_BY"></property>
 		<property name="updateTime" column="UPDATE_TIME"></property>
 		
-		<!-- table：指定中间表的name -->
-		<set name="roles" table="role_module_p">
+		<!-- table：指定中间表的NAME -->
+		<set name="roles" table="role_module_p" >
 			<key column="MODULE_ID"></key>
-			<many-to-many class="Role" column="ROLE_ID"></many-to-many>
+			<many-to-many class="Role" column="ROLE_ID" order-by="orderNo"></many-to-many>
 		</set>
 	</class>
 </hibernate-mapping>

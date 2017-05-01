@@ -16,18 +16,67 @@
 	<bean id="deptService" class="com.lw.jk.service.impl.DeptServiceImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
-	<!--  用户 -->
+	<!-- 用户 -->
 	<bean id="userService" class="com.lw.jk.service.impl.UserServiceImpl">
 		<property name="baseDao" ref="baseDao"></property>
+		<property name="mailMessage" ref="mailMessage"></property>
+		<property name="mailSender" ref="mailSender"></property>
 	</bean>
-	<!--  角色 -->
+	<!-- 角色 -->
 	<bean id="roleService" class="com.lw.jk.service.impl.RoleServiceImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
-	<!--  模块 -->
+	<!-- 模块 -->
 	<bean id="moduleService" class="com.lw.jk.service.impl.ModuleServiceImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
 
+	<!--工厂 -->
+	<bean id="factoryService" class="com.lw.jk.service.impl.FactoryServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<!-- 货物 -->
+	<bean id="contractProductService" class="com.lw.jk.service.impl.ContractProductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
 
+
+	<!-- 购销合同 -->
+	<bean id="contractService" class="com.lw.jk.service.impl.ContractServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<!-- 附件 -->
+	<bean id="extCproductService" class="com.lw.jk.service.impl.ExtCproductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+
+	<bean id="exportService" class="com.lw.jk.service.impl.ExportServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+
+	<bean id="exportProductService" class="com.lw.jk.service.impl.ExportProductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+
+	<!-- 报表service -->
+	<bean id="statChartService" class="com.lw.jk.service.impl.StatChartServiceImpl">
+		<property name="sqlDao" ref="sqlDao"></property>
+	</bean>
+	<!-- 装箱操作 -->
+	<bean id="packingListService" class="com.lw.jk.service.impl.PackingListServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 委托单操作 -->
+	<bean class="com.lw.jk.service.impl.ShippingOrderServiceImpl" id="shippingOrderService">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	
+	<!-- 发票管理 -->
+	<bean class="com.lw.jk.service.impl.InvoiceServiceImpl" id="invoiceService">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<!-- 财务报运 -->
+	<bean class="com.lw.jk.service.impl.FinanceServiceImpl" id="financeService">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
 </beans>

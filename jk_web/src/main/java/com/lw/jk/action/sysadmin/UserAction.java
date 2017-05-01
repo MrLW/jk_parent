@@ -17,9 +17,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 /**
  * 部门管理
- * 
  * @author lw
- *
  */
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
@@ -56,15 +54,12 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 	 * 分页查询
 	 */
 	public String list() throws Exception {
-		// 将page对象压入栈顶
-		super.push(page);
-		System.out.println("当前页：" + page.getPageNo());
-		// 注意：这里传递的是引用数据类型，因此这里可以用page接收，也可以不用
-		// page =
 		// HQL查询
 		userService.findPage("from User", page, User.class, null);
 		// 设置分页URL
 		page.setUrl("userAction_list");
+		// 将page对象压入栈顶
+		super.push(page);
 		return "list";
 	}
 
@@ -97,6 +92,8 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 	 * 新增部门
 	 */
 	public String insert() throws Exception {
+		// 清除id
+		model.setId(null);
 		// 从前台提交的数据有：父部门的name，新家部门的name，因此我们需要在service中处理
 		userService.saveOrUpdate(model);
 		return "alist";
@@ -135,8 +132,6 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 	public String update() throws Exception {
 		// 找到要修改的对象
 		User obj = userService.get(User.class, model.getId());
-		System.out.println("obj==:" + obj);
-		System.out.println("model==:" + model);
 		obj.setUserName(model.getUserName());
 		obj.setDept(model.getDept());
 		obj.setState(model.getState());

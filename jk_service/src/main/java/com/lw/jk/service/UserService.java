@@ -7,6 +7,7 @@ import java.util.List;
 import com.lw.jk.pojo.User;
 import com.lw.jk.utils.Page;
 
+
 public interface UserService {
 	// 查询所有，带条件查询
 	public List<User> find(String hql, Class<User> entityClass, Object[] params);

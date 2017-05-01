@@ -33,4 +33,54 @@
 	<bean id="moduleAction" class="com.lw.jk.action.sysadmin.ModuleAction">
 		<property name="moduleService" ref="moduleService"></property>
 	</bean>
+
+	<bean id="contractAction" class="com.lw.jk.action.cargo.ContractAction">
+		<property name="contractService" ref="contractService"></property>
+	</bean>
+
+	<bean id="contractProductAction" class="com.lw.jk.action.cargo.ContractProductAction">
+		<property name="contractProductService" ref="contractProductService"></property>
+		<property name="factoryService" ref="factoryService"></property>
+	</bean>
+
+	<bean id="extCproductAction" class="com.lw.jk.action.cargo.ExtCproductAction">
+		<property name="extCproductService" ref="extCproductService"></property>
+		<property name="factoryService" ref="factoryService"></property>
+	</bean>
+	
+	<bean id="outProductAction" class="com.lw.jk.action.cargo.OutProductAction">
+		<property name="contractService" ref="contractService"></property>
+		<property name="contractProductService" ref="contractProductService"></property>
+	</bean>
+	<bean id="exportAction" class="com.lw.jk.action.cargo.ExportAction">
+		<property name="exportService" ref="exportService"></property>
+		<property name="contractService" ref="contractService"></property>
+		<property name="exportProductService" ref="exportProductService"></property>
+		<property name="epService" ref="exportClient"></property>
+	</bean>
+	<!-- 报表action -->
+	<bean id="statChartAction" class="com.lw.jk.action.stat.StatChartAction">
+		<property name="statChartService" ref="statChartService"></property>
+	</bean>
+	<!-- 配置 装箱管理-->
+	<bean id="packingListAction" class="com.lw.jk.action.cargo.PackingListAction" scope="prototype">
+		<property name="packingListService" ref="packingListService"/>
+		<property name="exportService" ref="exportService"></property>
+	</bean>
+	<!-- 配置委托管理 -->
+	<bean id="shippingOrderAction" class="com.lw.jk.action.cargo.ShippingOrderAction">
+		<property name="shippingOrderService" ref="shippingOrderService"></property>
+		<property name="packingListService" ref="packingListService"></property>
+	</bean>
+	<!-- 发票管理 -->
+	
+	<bean id="invoiceAction" class="com.lw.jk.action.cargo.InvoiceAction" scope="prototype">
+		<property name="invoiceService" ref="invoiceService"/>
+		<property name="shippingOrderService" ref="shippingOrderService"></property>
+	</bean>
+	<!-- 财务管理 -->
+	<bean id="financeAction" class="com.lw.jk.action.cargo.FinanceAction" scope="prototype">
+		<property name="financeService" ref="financeService"/>
+		<property name="invoiceService" ref="invoiceService"></property>
+	</bean>
 </beans>

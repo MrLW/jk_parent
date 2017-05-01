@@ -4,13 +4,12 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.poi.ss.formula.functions.T;
-
 import com.lw.jk.dao.BaseDao;
 import com.lw.jk.pojo.Dept;
 import com.lw.jk.service.DeptService;
 import com.lw.jk.utils.Page;
 import com.lw.jk.utils.UtilFuns;
+
 
 public class DeptServiceImpl implements DeptService {
 

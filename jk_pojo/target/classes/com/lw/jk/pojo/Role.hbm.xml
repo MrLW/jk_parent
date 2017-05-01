@@ -18,13 +18,13 @@
 		<property name="updateBy" column="UPDATE_BY"></property>
 		<property name="updateTime" column="UPDATE_TIME"></property>
 
-		<set name="users" table="role_user_p">
+		<set name="users" table="role_user_p" >
 			<key column="ROLE_ID"></key>
 			<many-to-many class="User" column="USER_ID"></many-to-many>
 		</set>
-		<set name="modules"  table="role_module_p">
+		<set name="modules"  table="role_module_p" >
 			<key column="ROLE_ID"></key>
-			<many-to-many class="Module" column="MODULE_ID"></many-to-many>
+			<many-to-many class="Module" column="MODULE_ID" order-by="ORDER_NO"></many-to-many>
 		</set>
 	</class>
 </hibernate-mapping>

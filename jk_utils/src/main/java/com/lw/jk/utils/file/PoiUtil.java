@@ -100,6 +100,11 @@ public class PoiUtil {
 	}
 
 	// 指定图片类型为jpg
+	/**
+	 * 
+	 * @param patriarch:画图的顶级管理器
+	 * @throws IOException
+	 */
 	public void setPicture(HSSFWorkbook wb, HSSFPatriarch patriarch, String pic, int iRowStart, int iColStart, int iRowStop, int iColStop) throws IOException {
 		// 判断文件是否存在
 		File imgFile = new File(pic);
@@ -110,7 +115,9 @@ public class PoiUtil {
 			ImageIO.write(bufferImg, "jpg", byteArrayOut);
 
 			// 左,上(0-255),右(0-1023),下
+			// 主要设置图片图片相关的属性
 			HSSFClientAnchor anchor = new HSSFClientAnchor(20, 1, 1018, 0, (short) (iColStart), iRowStart, (short) (iColStop), iRowStop);
+			// 插入图片
 			patriarch.createPicture(anchor, wb.addPicture(byteArrayOut.toByteArray(), HSSFWorkbook.PICTURE_TYPE_JPEG));
 		}
 	}

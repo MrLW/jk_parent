@@ -18,7 +18,7 @@
 			<column name="STATE" />
 		</property>
 		<set name="users">
-			<!-- 外键字段 -->
+			<!-- 引用外键字段 -->
 			<key column="DEPT_ID"></key>
 			<one-to-many class="User" />
 		</set>

@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pie>
-  <slice title="Twice a day" pull_out="true">358</slice>
-  <slice title="Once a day">258</slice>
-  <slice title="Once a week">154</slice>
-  <slice title="Never" url="http://www.interactivemaps.org" description="Click on the slice to find more information" alpha="50">114</slice>
-</pie>
+<?xml version="1.0" encoding="UTF-8"?><pie><slice title="光华">276643.00</slice><slice title="宏艺">244497.60</slice><slice title="精艺">102216.00</slice><slice title="天顺">89864.80</slice><slice title="文水志远">89136.00</slice><slice title="民鑫">89007.00</slice><slice title="南皮开发">48400.00</slice><slice title="华艺">40112.00</slice><slice title="会龙">25901.40</slice><slice title="平遥鸿艺">19318.40</slice><slice title="汇越">6960.00</slice><slice title="晶晨">1000.00</slice><slice title="平遥远江">121.00</slice><slice title="升华">100.00</slice></pie>

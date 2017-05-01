@@ -14,7 +14,11 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 
 	</listener>
-	<!--2.懒加载 OpenSessionInviewFilter noSession or session is closed -->
+	<!--
+		2.懒加载 OpenSessionInviewFilter noSession or session is closed 
+		    作用:当我们在dao层使用load懒加载数据时,到了view层时,此时session已经关闭了则会报懒加载异常	
+		 	 和一次完整的请求过程对应的线程相绑定
+	-->
 	<filter>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
@@ -23,6 +27,7 @@
 			<param-value>true</param-value>
 
 		</init-param>
+		 <!-- 如果在spring中sessionFactory的name为sessionFactory则可以省略 -->
 		<init-param>
 			<param-name>sessionFactoryBeanName</param-name>
 			<param-value>sessionFactory</param-value>

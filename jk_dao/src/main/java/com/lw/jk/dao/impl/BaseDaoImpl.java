@@ -12,13 +12,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.lw.jk.dao.BaseDao;
 import com.lw.jk.utils.Page;
 
-/**
- * @Description:
- * @Author: 传智播客 java学院 传智.宋江
- * @Company: http://java.itcast.cn
- * @CreateDate: 2014年10月31日
- */
 public class BaseDaoImpl implements BaseDao {
+	
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -30,6 +25,7 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	// 带条件查询
+	@SuppressWarnings("unchecked")
 	public <T> List<T> find(String hql, Class<T> entityClass, Object[] params) {
 		Query query = this.getSession().createQuery(hql);
 		if (params != null) {

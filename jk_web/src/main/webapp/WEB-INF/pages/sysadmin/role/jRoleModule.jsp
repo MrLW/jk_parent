@@ -27,7 +27,7 @@
 			}
 		}
 	};
-
+	// 使用ajax异步请求数据
 	$(document)
 			.ready(
 					// 相当于window.load()方法
