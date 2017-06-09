@@ -42,6 +42,9 @@ public class ContractAction extends BaseAction implements ModelDriven<Contract> 
 	 * 分页查询
 	 */
 	public String list() throws Exception {
+
+		model.setId(null);
+
 		// 注意：这里传递的是引用数据类型，因此这里可以用page接收，也可以不用
 		// page =
 		// HQL查询
@@ -51,7 +54,6 @@ public class ContractAction extends BaseAction implements ModelDriven<Contract> 
 		User user = super.getCurrentUser();
 		// 1.2、获取当前用户的等级
 		Integer degree = user.getUserInfo().getDegree();
-		System.out.println("degree::::::::::::" + degree + ";user:" + user);
 		switch (degree) {
 		case 1:// 副总
 			break;
@@ -94,7 +96,7 @@ public class ContractAction extends BaseAction implements ModelDriven<Contract> 
 	}
 
 	/**
-	 * 有一个bug，从前台传递过来的数据总是携带一个ID 新增部门
+	 * 有一个bug，从前台传递过来的数据总是携带一个ID 新增部门(已解决)
 	 */
 	public String insert() throws Exception {
 
@@ -105,7 +107,7 @@ public class ContractAction extends BaseAction implements ModelDriven<Contract> 
 
 		// 强制新增
 		model.setId(null);
-		
+
 		contractService.saveOrUpdate(model);
 		return "alist";
 	}

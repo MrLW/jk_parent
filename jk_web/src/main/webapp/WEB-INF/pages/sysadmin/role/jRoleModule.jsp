@@ -60,6 +60,7 @@
 			}
 			str += nodes[i].id;
 		}
+		// 在id的作用域设置值,用来传到 后台
 		$('#moduleIds').val(str);
 	}
 </script>

@@ -14,6 +14,7 @@
 
 	<!-- 配置action scope:默认为单例 -->
 	<bean id="loginAction" class="com.lw.jk.action.LoginAction" scope="prototype">
+		<property name="loginLogService" ref="loginLogService"></property>
 	</bean>
 	<bean id="homeAction" class="com.lw.jk.action.HomeAction" scope="prototype"></bean>
 	<!-- 配置部门action -->
@@ -82,5 +83,14 @@
 	<bean id="financeAction" class="com.lw.jk.action.cargo.FinanceAction" scope="prototype">
 		<property name="financeService" ref="financeService"/>
 		<property name="invoiceService" ref="invoiceService"></property>
+	</bean>
+	<!-- 工厂信息管理 -->
+	<bean id="factoryAction" class="com.lw.jk.action.base.FactoryAction" scope="prototype">
+		<property name="factoryService" ref="factoryService"/>
+	</bean>
+	<!-- 产品信息管理 -->
+	<bean id="productAction" class="com.lw.jk.action.base.ProductAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+		<property name="factoryService" ref="factoryService"></property>
 	</bean>
 </beans>

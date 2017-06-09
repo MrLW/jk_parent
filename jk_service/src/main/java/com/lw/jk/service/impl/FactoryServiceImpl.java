@@ -33,8 +33,7 @@ public class FactoryServiceImpl implements FactoryService {
 	public void saveOrUpdate(Factory entity) {
 		if(UtilFuns.isEmpty(entity.getId())){
 			//新增
-			
-			
+			entity.setState(1);
 		}
 		baseDao.saveOrUpdate(entity);
 	}

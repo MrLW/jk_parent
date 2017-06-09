@@ -50,5 +50,8 @@
 		<mapping resource="com/lw/jk/pojo/Invoice.hbm.xml"></mapping>
 		<!-- 财务管理 -->
 		<mapping resource="com/lw/jk/pojo/Finance.hbm.xml"></mapping>
+		<!-- 产品管理 -->
+		<mapping resource="com/lw/jk/pojo/LoginLog.hbm.xml"></mapping>
+		<!-- 登录日志 -->
 	</session-factory>
 </hibernate-configuration>

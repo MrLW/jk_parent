@@ -9,6 +9,7 @@ public class Role extends BasePojo{
 	private String name;// 角色名
 	private String remark;// 备注
 	private String orderNo;// 排序号
+	private Integer checked ;// 新添加的字段，在列表中这一行是否选中  1:选中,0未选中
 	private Set<Module> modules = new HashSet<>() ; // 角色和模块多对多
 	public String getId() {
 		return id;
@@ -56,6 +57,14 @@ public class Role extends BasePojo{
 
 	public void setModules(Set<Module> modules) {
 		this.modules = modules;
+	}
+
+	public Integer getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Integer checked) {
+		this.checked = checked;
 	}
 
 }

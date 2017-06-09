@@ -28,7 +28,7 @@ public class JavaMailTest {
 			Address toAddress = new InternetAddress("1819270694@qq.com");// 邮件地址
 			message.setRecipient(RecipientType.TO, toAddress);// 设置接收者的地址
 			// 设置邮件的主题
-			message.setSubject("哥哥，晚上约你！");
+			message.setSubject("hello mail！");
 			// 设置邮件的内容
 			message.setText("我是cgx。。。。老地址见！");
 			// 保存邮件

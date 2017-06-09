@@ -1,10 +1,14 @@
 package com.lw.jk.action;
 
+import java.util.Date;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 
+import com.lw.jk.pojo.LoginLog;
 import com.lw.jk.pojo.User;
+import com.lw.jk.service.LoginLogService;
 import com.lw.jk.utils.SysConstant;
 import com.lw.jk.utils.UtilFuns;
 
@@ -17,7 +21,10 @@ public class LoginAction extends BaseAction {
 
 	private String username;
 	private String password;
-
+	private LoginLogService loginLogService;
+	public void setLoginLogService(LoginLogService loginLogService) {
+		this.loginLogService = loginLogService;
+	}
 	// SSH传统登录方式
 	public String login() throws Exception {
 		if (UtilFuns.isEmpty(username)) {
@@ -33,6 +40,13 @@ public class LoginAction extends BaseAction {
 			User user = (User) subject.getPrincipal();
 			// 4、将用户信息存入session
 			session.put(SysConstant.CURRENT_USER_INFO, user);
+			// 创建登录日志
+			LoginLog ll = new LoginLog() ;
+			ll.setId(user.getId());
+			ll.setIpAddress(super.getIpAddress());
+			ll.setLoginName(user.getUserName());
+			ll.setLoginTime(new Date());
+			loginLogService.saveOrUpdate(ll);
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.put("errorInfo", "用户名密码错误");

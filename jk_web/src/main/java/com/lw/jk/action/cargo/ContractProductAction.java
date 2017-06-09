@@ -11,7 +11,7 @@ import com.lw.jk.utils.Page;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
- * 部门管理
+ * 购销合同的货物管理
  * 
  * @author lw
  *

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="base" namespace="/base" extends="default">
+		<action name="factoryAction_*" method="{1}" class="factoryAction">
+			<result name="alist" type="redirect">factoryAction_list</result>
+			<result name="plist">/WEB-INF/pages/base/factory/jFactoryListPage.jsp
+			</result>
+			<result name="pcreate">/WEB-INF/pages/base/factory/jFactoryCreate.jsp
+			</result>
+			<result name="pupdate">/WEB-INF/pages/base/factory/jFactoryUpdate.jsp
+			</result>
+			<result name="pview">/WEB-INF/pages/base/factory/jFactoryView.jsp
+			</result>
+		</action>
+		<!-- 产品信息 -->
+		<action name="productAction_*" method="{1}" class="productAction">
+			<result name="alist" type="redirect">productAction_list</result>
+			<result name="plist">/WEB-INF/pages/base/product/jProductListPage.jsp
+			</result>
+			<result name="pcreate">/WEB-INF/pages/base/product/jProductCreate.jsp
+			</result>
+			<result name="pupdate">/WEB-INF/pages/base/product/jProductUpdate.jsp
+			</result>
+			<result name="pview">/WEB-INF/pages/base/product/jProductView.jsp
+			</result>
+		</action>
+	</package>
+
+
+</struts>
+	

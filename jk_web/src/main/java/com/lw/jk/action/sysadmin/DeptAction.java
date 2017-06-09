@@ -75,7 +75,7 @@ public class DeptAction extends BaseAction implements ModelDriven<Dept> {
 	 */
 	public String insert() throws Exception {
 		model.setId(null);
-		// 从前台提交的数据有：父部门的name，新家部门的name，因此我们需要在service中处理
+		
 		deptService.saveOrUpdate(model);
 		return "alist";
 	}

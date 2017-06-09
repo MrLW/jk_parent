@@ -4,7 +4,11 @@
 <head>
 	<title></title>
 </head>
-
+<script type="text/javascript">
+	function goList() {
+		location.href="moduleAction_list";
+	}
+</script>
 <body>
 <form name="icform" method="post">
 
@@ -13,7 +17,7 @@
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="back"><a href="#" onclick="history.go(-1);">返回</a></li>
+<li id="back"><a href="#" onclick="goList()">返回</a></li>
 </ul>
   </div>
 </div>

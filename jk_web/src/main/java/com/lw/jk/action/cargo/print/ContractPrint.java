@@ -34,6 +34,8 @@ public class ContractPrint {
 		// 相同厂家的信息一起打印
 		// 获取商品列表
 		Set<ContractProduct> oList = contract.getContractProducts();
+		// 将set转换成list
+		List<ContractProduct> mylist = new ArrayList<>(oList);
 		UtilFuns utilFuns = new UtilFuns();
 		String tempXlsFile = path + "make/xlsprint/tCONTRACT.xls"; // 获取模板文件
 
@@ -48,12 +50,13 @@ public class ContractPrint {
 		}
 
 		String oldFactory = "";
-		for (int i = 0; i < oList.size(); i++) {
-			oProduct = oList.iterator().next(); // 获得货物
+		for (int i = 0; i < mylist.size(); i++) {
+			
+			oProduct = mylist.get(i); // 获得货物
 			pageMap = new HashMap(); // 每页的内容
 
 			pageMap.put("Offeror", "收 购 方：" + contract.getOfferor());
-			pageMap.put("Factory", "生产工厂：" + oProduct.getFactory().getFactoryName());
+			pageMap.put("Factory", "生产工厂：" + oProduct.getFactoryName());
 			pageMap.put("ContractNo", "合 同 号：" + contract.getContractNo());
 			pageMap.put("Contacts", "联 系 人：" + oProduct.getFactory().getContacts());
 			pageMap.put("SigningDate",
@@ -77,11 +80,10 @@ public class ContractPrint {
 			pageMap.put("ProductNo", oProduct.getProductNo());
 
 			oldFactory = oProduct.getFactory().getFactoryName();
-
 			if (contract.getPrintStyle().equals("2")) { // 打印两个货物
 				i++; // 读取第二个货物信息
-				if (i < oList.size()) { 
-					oProduct = oList.iterator().next();
+				if (i < mylist.size()) { 
+					oProduct = mylist.get(i);
 
 					if (oProduct.getFactory().getFactoryName().equals(oldFactory)) { // 厂家不同另起新页打印，除去第一次的比较
 

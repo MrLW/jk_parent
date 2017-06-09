@@ -6,6 +6,7 @@ E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\cn\itcast\expor
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\cargo\FinanceAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\sysadmin\UserAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\shiro\CustomCredentialsMatcher.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\base\ProductAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\cargo\PackingListAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\shiro\AuthRealm.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\stat\StatChartAction.java
@@ -25,5 +26,7 @@ E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\actio
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\sysadmin\ModuleAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\cn\itcast\export\webservice\EpService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\LoginAction.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\base\FactoryAction.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\sysadmin\DeptAction.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\com\lw\jk\action\listener\MyServletContextListener.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_web\src\main\java\cn\itcast\export\webservice\Exception_Exception.java

@@ -290,7 +290,7 @@
 								<span id="topmenu" onclick="toModule('sysadmin');">系统管理</span>
 							</shiro:hasPermission>
 							<shiro:hasPermission name="流程管理">
-								<span id="topmenu" onclick="toModule('activiti');">流程管理</span>
+								<!-- <span id="topmenu" onclick="toModule('activiti');">流程管理</span> -->
 							</shiro:hasPermission>
 
 						</div>

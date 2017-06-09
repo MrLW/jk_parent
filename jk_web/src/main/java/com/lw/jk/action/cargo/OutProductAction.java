@@ -101,8 +101,9 @@ public class OutProductAction extends BaseAction {
 		CellStyle deliveryPeriodCellStyle = nRow.getCell(cellNo++).getCellStyle();
 		CellStyle shipTimeCellStyle = nRow.getCell(cellNo++).getCellStyle();
 		CellStyle tradeTermsCellStyle = nRow.getCell(cellNo++).getCellStyle();
-
-		String hql = "from ContractProduct ";
+		
+		//sql:SELECT * FROM `contract_c` WHERE DATE_FORMAT(ship_time,'%Y-%m-%d') = '2015-01-10'
+		String hql = "from ContractProduct where  DATE_FORMAT(contract.shipTime,'%Y-%m') = '" + inputDate +" '";
 		List<ContractProduct> list = contractProductService.find(hql, ContractProduct.class, null);// 查询出符合指定船期的货物列表
 
 		for (ContractProduct cp : list) {

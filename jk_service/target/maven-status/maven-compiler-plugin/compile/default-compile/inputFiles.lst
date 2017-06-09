@@ -1,5 +1,6 @@
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\UserServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ExportProductServiceImpl.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\LoginLogService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\ExportService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\FactoryServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ContractProductServiceImpl.java
@@ -7,7 +8,9 @@ E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\s
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\FactoryService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\PackingListService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ShippingOrderServiceImpl.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\ProductService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\ContractProductService.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\LoginLogServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\UserService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ContractServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\StatChartService.java
@@ -16,6 +19,7 @@ E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\s
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\DeptService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\InvoiceService.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\PackingListServiceImpl.java
+E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ProductServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\ExportServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\impl\InvoiceServiceImpl.java
 E:\code\javaee_project\2017\04\jk\jk_parent\jk_service\src\main\java\com\lw\jk\service\RoleService.java

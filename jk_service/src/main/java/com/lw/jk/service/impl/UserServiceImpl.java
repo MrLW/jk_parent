@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 	public void saveOrUpdate(final User entity) {
 		// 判断是否是新加的部门
 		if (UtilFuns.isEmpty(entity.getId())) {
-			// 设置新家的部门启用
+			
 			entity.setState(1);
 			// 生成UUID并且设置
 			String uuid = UUID.randomUUID().toString();
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 			entity.getUserInfo().setId(uuid);
 			// 设置密码
 			entity.setPassword(Encrypt.md5(SysConstant.DEFAULT_PASS, entity.getUserName()));
-
+			
 			sendMessageToEmail(entity);
 		}
 		baseDao.saveOrUpdate(entity);

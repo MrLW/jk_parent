@@ -8,13 +8,12 @@ import com.lw.jk.pojo.Module;
 import com.lw.jk.service.DeptService;
 import com.lw.jk.service.ModuleService;
 import com.lw.jk.utils.Page;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
- * 部门管理
- * 
+ * 模块管理
  * @author lw
- *
  */
 public class ModuleAction extends BaseAction implements ModelDriven<Module> {
 
@@ -41,6 +40,8 @@ public class ModuleAction extends BaseAction implements ModelDriven<Module> {
 	 * 分页查询
 	 */
 	public String list() throws Exception {
+		// 首先在列表页面中清除模型id
+		model.setId(null);
 		// 将page对象压入栈顶
 		super.push(page);
 		// 注意：这里传递的是引用数据类型，因此这里可以用page接收，也可以不用
@@ -57,9 +58,9 @@ public class ModuleAction extends BaseAction implements ModelDriven<Module> {
 	 */
 	public String toview() throws Exception {
 		// 根據ID查询对象
-		Module dept = moduleService.get(Module.class, model.getId());
-		// 存入值栈
-		super.push(dept);
+		Module module = moduleService.get(Module.class, model.getId());
+		// 存入值栈栈顶
+		super.push(module);
 		return "toview";
 	}
 

@@ -25,7 +25,7 @@ import com.lw.jk.utils.Page;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
- * 部门管理
+ * 角色管理
  * 
  * @author lw
  */
@@ -50,13 +50,15 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 	public void setModuleService(ModuleService moduleService) {
 		this.moduleService = moduleService;
 	}
+
 	// 该key属性不作为json内容输出
-	@org.apache.struts2.json.annotations.JSON(serialize=false)
+	@org.apache.struts2.json.annotations.JSON(serialize = false)
 	@Override
 	public Role getModel() {
 		return model;
 	}
-	@org.apache.struts2.json.annotations.JSON(serialize=false)
+
+	@org.apache.struts2.json.annotations.JSON(serialize = false)
 	public Page getPage() {
 		return page;
 	}
@@ -65,6 +67,8 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 	 * 分页查询
 	 */
 	public String list() throws Exception {
+		// 在list页面中清除模型中的id
+		// model.setId(null);在moduleAction测试
 		// 将page对象压入栈顶
 		super.push(page);
 		// HQL查询
@@ -80,9 +84,11 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 	public String toview() throws Exception {
 		try {
 			// 根據ID查询对象
-			Role dept = roleService.get(Role.class, model.getId());
+			Role role = roleService.get(Role.class, model.getId());
+			// 更改在列表中checkbox的状态
+			roleService.setChecked(role, true);
 			// 存入值栈
-			super.push(dept);
+			super.push(role);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new SysException("您的操作有误,请联系管理员");
@@ -105,6 +111,8 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 		model.setId(null);
 		// 从前台提交的数据有：父部门的name，新家部门的name，因此我们需要在service中处理
 		roleService.saveOrUpdate(model);
+		// 清除所有选中
+		roleService.setAllUnChecked();
 		return "alist";
 	}
 
@@ -157,8 +165,12 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 		return "tomodule";
 	}
 
-
-
+	/**
+	 * 生成角色管理中对应的权限json
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	public String roleModuleJsonStr() throws Exception {
 		// 1、根据角色id得到角色
 		Role role = roleService.get(Role.class, model.getId());
@@ -167,7 +179,7 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 		List<Module> moduleList = moduleService.find("from Module", Module.class, null);
 		int size = moduleList.size();
 		// 3、这里需要特定格式的json,方法1：拼接json
-		// 方法二：创建一个特定的pojo,然后使用fastjson来解析
+		// 方法2：创建一个特定的pojo,然后使用fastjson来解析
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
 		// 方法一、使用拼接字符串的方式
@@ -209,14 +221,21 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 		// 4、使用response输出
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json;charset=utf-8");
-		
-		// response.getWriter().write(sb.toString()); 方法一
-		
-		response.getWriter().write(sb.toString()); // 方法二
+
+		response.getWriter().write(sb.toString());// 方法一
+
 		System.out.println("json1:" + json);
 		System.out.println("json2:" + sb.toString());
+		/**
+		 * json1:[{"id":"1","pid":"null","name":"系统首页","checked":"true"},{"id":"101","pid":"1","name":"我的留言板","checked":"true"},{"id":"102","pid":"1","name":"我的代办任务","checked":"true"},{"id":"103","pid":"1","name":"请假单管理","checked":"true"},{"id":"2","pid":"null","name":"货运管理","checked":"true"},{"id":"201","pid":"2","name":"购销合同","checked":"true"},{"id":"202","pid":"2","name":"出货表","checked":"true"},{"id":"203","pid":"2","name":"合同管理","checked":"true"},{"id":"204","pid":"2","name":"出口报运","checked":"true"},{"id":"205","pid":"2","name":"装箱管理","checked":"true"},{"id":"206","pid":"2","name":"委托管理","checked":"true"},{"id":"207","pid":"2","name":"发票管理","checked":"true"},{"id":"208","pid":"2","name":"财务管理","checked":"true"},{"id":"3","pid":"null","name":"统计分析","checked":"false"},{"id":"301","pid":"3","name":"生产厂家销售情况","checked":"false"},{"id":"302","pid":"3","name":"产品销售排行","checked":"false"},{"id":"303","pid":"3","name":"系统访问压力图","checked":"false"},{"id":"4","pid":"null","name":"基础信息","checked":"false"},{"id":"401","pid":"4","name":"产品信息","checked":"false"},{"id":"402","pid":"4","name":"厂家信息","checked":"false"},{"id":"4028827c4fbbba20014fbbbc80570000","pid":"null","name":"44","checked":"false"},{"id":"5","pid":"null","name":"系统管理","checked":"false"},{"id":"501","pid":"5","name":"部门管理","checked":"false"},{"id":"502","pid":"5","name":"用户管理","checked":"false"},{"id":"503","pid":"5","name":"角色管理","checked":"false"},{"id":"504","pid":"5","name":"模块管理","checked":"false"},{"id":"6","pid":"null","name":"流程管理","checked":"false"},{"id":"601","pid":"6","name":"部署流程","checked":"false"},{"id":"602","pid":"6","name":"查询流程","checked":"false"},{"id":"603","pid":"6","name":"添加采购单","checked":"false"},{"id":"604","pid":"6","name":"查询采购单","checked":"false"}]
+		 * json2:[{"id":"1","pId":"null","name":"系统首页","checked":"true"},{"id":"101","pId":"1","name":"我的留言板","checked":"true"},{"id":"102","pId":"1","name":"我的代办任务","checked":"true"},{"id":"103","pId":"1","name":"请假单管理","checked":"true"},{"id":"2","pId":"null","name":"货运管理","checked":"true"},{"id":"201","pId":"2","name":"购销合同","checked":"true"},{"id":"202","pId":"2","name":"出货表","checked":"true"},{"id":"203","pId":"2","name":"合同管理","checked":"true"},{"id":"204","pId":"2","name":"出口报运","checked":"true"},{"id":"205","pId":"2","name":"装箱管理","checked":"true"},{"id":"206","pId":"2","name":"委托管理","checked":"true"},{"id":"207","pId":"2","name":"发票管理","checked":"true"},{"id":"208","pId":"2","name":"财务管理","checked":"true"},{"id":"3","pId":"null","name":"统计分析","checked":"false"},{"id":"301","pId":"3","name":"生产厂家销售情况","checked":"false"},{"id":"302","pId":"3","name":"产品销售排行","checked":"false"},{"id":"303","pId":"3","name":"系统访问压力图","checked":"false"},{"id":"4","pId":"null","name":"基础信息","checked":"false"},{"id":"401","pId":"4","name":"产品信息","checked":"false"},{"id":"402","pId":"4","name":"厂家信息","checked":"false"},{"id":"4028827c4fbbba20014fbbbc80570000","pId":"null","name":"44","checked":"false"},{"id":"5","pId":"null","name":"系统管理","checked":"false"},{"id":"501","pId":"5","name":"部门管理","checked":"false"},{"id":"502","pId":"5","name":"用户管理","checked":"false"},{"id":"503","pId":"5","name":"角色管理","checked":"false"},{"id":"504","pId":"5","name":"模块管理","checked":"false"},{"id":"6","pId":"null","name":"流程管理","checked":"false"},{"id":"601","pId":"6","name":"部署流程","checked":"false"},{"id":"602","pId":"6","name":"查询流程","checked":"false"},{"id":"603","pId":"6","name":"添加采购单","checked":"false"},{"id":"604","pId":"6","name":"查询采购单","checked":"false"}]
+		 * json1==json2:false
+		 */
+		// 问题：返回false,为什么不一样呢？两者输出的字符串一样
 		System.out.println("json1==json2:" + json.equals(sb.toString()));
+
 		return null;
+		// return "jsondata";
 	}
 
 	/**
@@ -248,14 +267,14 @@ public class RoleAction extends BaseAction implements ModelDriven<Role> {
 	public void setModuleIds(String moduleIds) {
 		this.moduleIds = moduleIds;
 	}
-	
+
 	// 要返回的json字符串
-	private String json ; 
-	
+	private String json;
+
 	public void setJson(String json) {
 		this.json = json;
 	}
-	
+
 	public String getJson() {
 		return json;
 	}

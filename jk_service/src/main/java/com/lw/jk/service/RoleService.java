@@ -29,4 +29,9 @@ public interface RoleService {
 
 	// 批量删除
 	public  void delete(Class<Role> entityClass, Serializable[] ids);
+	// 设置是否选中
+	public void setChecked(Role role ,boolean checked) ;
+	
+	// 设置全部选中
+	public void setAllUnChecked();
 }

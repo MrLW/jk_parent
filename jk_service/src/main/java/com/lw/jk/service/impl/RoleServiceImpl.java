@@ -43,7 +43,8 @@ public class RoleServiceImpl implements RoleService {
 
 	}
 
-	/** 删除用户
+	/**
+	 * 删除用户
 	 */
 	@Override
 	public void deleteById(Class<Role> entityClass, Serializable id) {
@@ -58,4 +59,29 @@ public class RoleServiceImpl implements RoleService {
 		}
 	}
 
+	@Override
+	public void setChecked(Role role, boolean checked) {
+		List<Role> roleList = baseDao.find("from Role", Role.class, null);
+		// 先重置所有
+		for (Role r : roleList) {
+			r.setChecked(0);
+		}
+		if (checked) {
+			role.setChecked(1);
+		} else {
+			role.setChecked(0);
+		}
+		baseDao.saveOrUpdate(role);
+	}
+
+	@Override
+	public void setAllUnChecked() {
+		List<Role> roleList = baseDao.find("from Role", Role.class, null);
+		for (Role role : roleList) {
+			role.setChecked(0);
+			baseDao.saveOrUpdate(role);
+		}
+	}
+
+	
 }

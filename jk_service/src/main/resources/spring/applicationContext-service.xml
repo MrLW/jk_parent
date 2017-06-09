@@ -79,4 +79,12 @@
 	<bean class="com.lw.jk.service.impl.FinanceServiceImpl" id="financeService">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
+	<!-- 产品信息 -->
+	<bean id="productService" class="com.lw.jk.service.impl.ProductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<!-- 登录日志service -->
+	<bean class="com.lw.jk.service.impl.LoginLogServiceImpl" id="loginLogService">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
 </beans>

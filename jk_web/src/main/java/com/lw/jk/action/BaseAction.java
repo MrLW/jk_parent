@@ -3,6 +3,7 @@ package com.lw.jk.action;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -77,5 +78,12 @@ public class BaseAction extends ActionSupport implements RequestAware, SessionAw
 	public User getCurrentUser(){
 		return (User)session.get(SysConstant.CURRENT_USER_INFO) ;
 	}
-
+	
+	/**
+	 *  获取当前的ip地址
+	 */
+	public String getIpAddress(){
+		String ipAddress = ServletActionContext.getRequest().getRemoteAddr();
+		return ipAddress ;
+	}
 }
